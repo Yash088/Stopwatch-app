@@ -36,12 +36,12 @@ const Stopwatch = () => {
         <Button onClick={handleStartPause}>
           {isRunning ? "Pause" : "Start"}
         </Button>
-        <Button disabled={!isRunning && seconds == 0} onClick={handleStop}>
+        <Button disabled={!isRunning && seconds === 0} onClick={handleStop}>
           Stop
         </Button>
         <Button
           onClick={handleReset}
-          disabled={(!isRunning && seconds == 0) && finalTime === null}
+          disabled={(!isRunning && seconds === 0) && finalTime === null}
         >
           Reset
         </Button>
