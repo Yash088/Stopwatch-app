@@ -1,10 +1,7 @@
 import React, { Fragment } from "react";
-import ResetButton from "../../components/ResetButton";
-import StartPauseButton from "../../components/StartPauseButton";
-import StopButton from "../../components/StopButton";
-
 import useStopwatch from "./useStopwatch";
 import "./stopwatch.css";
+import Button from "../../common/Button/Button";
 
 const Stopwatch = () => {
   const {
@@ -36,15 +33,18 @@ const Stopwatch = () => {
         )}
       </div>
       <div className="buttons-container">
-        <StartPauseButton
-          isRunning={isRunning}
-          onStartPause={handleStartPause}
-        />
-        <StopButton onStop={handleStop} isRunning={isRunning} />
-        <ResetButton
-          onReset={handleReset}
-          disabled={!isRunning && finalTime === null}
-        />
+        <Button onClick={handleStartPause}>
+          {isRunning ? "Pause" : "Start"}
+        </Button>
+        <Button disabled={!isRunning && seconds == 0} onClick={handleStop}>
+          Stop
+        </Button>
+        <Button
+          onClick={handleReset}
+          disabled={(!isRunning && seconds == 0) && finalTime === null}
+        >
+          Reset
+        </Button>
       </div>
     </div>
   );

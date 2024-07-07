@@ -26,7 +26,7 @@ const useStopwatch = () => {
   const handleStop = useCallback(() => {
     clearInterval(intervalId);
     setIsRunning(false);
-    setFinalTime(totalSeconds); // set the final time before resetting
+    setFinalTime(totalSeconds);
     setTotalSeconds(0);
   }, [intervalId, totalSeconds]);
 
@@ -34,7 +34,7 @@ const useStopwatch = () => {
     clearInterval(intervalId);
     setIsRunning(false);
     setTotalSeconds(0);
-    setFinalTime(null); // clear the final time
+    setFinalTime(null);
   }, [intervalId]);
 
   const formatTimePart = (timePart) => {
